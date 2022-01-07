@@ -1,0 +1,29 @@
+<!-- post-list.component.html -->
+<h3>List</h3>
+
+<ng-container *ngIf="posts.length; else elseTemplate">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{post.title}}</td>
+                <td>{{post.content}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-container>
+<ng-template #elseTemplate>
+
+    <div class="alert alert-danger" role="alert">
+        No Post Found!
+    </div>
+
+</ng-template>
